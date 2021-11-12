@@ -1,25 +1,19 @@
+PREFIX ont: <http://purl.org/net/ns/ontology-annot#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX dbr: <http://www.banderasazulesgalicia.com#>
-PREFIX res: <http://www.banderasazulesgalicia.com#>
-
-
-#Query1
-SELECT ?playa 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX onto: <http://www.banderasazulesgalicia.com/ontologia#>
+SELECT  DISTINCT ?playa ?lat ?lon ?ta ?tp ?nu ?na ?ca ?np ?Links ?cp ?lp ?mi
 WHERE {
-    ?playa rdf:type dbr:Tipo-de-Arena.
-    ?playa dbr:TIPO-DE-ARENA "Gruesa"
-}
-
-#Query2
-SELECT ?playa,?tipoPlaya
-WHERE{
-    ?playa,?tipoPlaya rdf:type dbr:Provincia.
-    ?playa,?tipoPlaya dbr:CODIGO-PROVINCIA "27"
-}
-
-#Query3
-SELECT ?tipoArena 
-WHERE{
-    ?tipoArena  rdf:type dbr:Playa.
-    ?tipoArena  dbr:PLAYA "Sabon"
+  ?playa a <http://www.banderasazulesgalicia.com/ontologia#playa>;
+  <http://www.banderasazulesgalicia.com/ontologia#latitud> ?lat;
+  <http://www.banderasazulesgalicia.com/ontologia#longitud> ?lon;
+  <http://www.banderasazulesgalicia.com/ontologia#tipoArena> ?ta, "Gruesa";
+  <http://www.banderasazulesgalicia.com/ontologia#tipoPlaya> ?tp;
+  <http://www.banderasazulesgalicia.com/ontologia#NombreUbicacion> ?nu;
+  <http://www.banderasazulesgalicia.com/ontologia#NombreAyuntamiento> ?na;
+  <http://www.banderasazulesgalicia.com/ontologia#codigoAyuntamiento> ?ca;
+  <http://www.banderasazulesgalicia.com/ontologia#NombreProvincia> ?np, "A Coruña Province";
+  <http://www.banderasazulesgalicia.com/ontologia#codigoProvincia> ?cp;
+  <http://www.banderasazulesgalicia.com/ontologia#longitudPlaya> ?lp;
+  <http://www.banderasazulesgalicia.com/ontologia#masInfo> ?mi;
 }
